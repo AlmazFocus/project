@@ -6,13 +6,29 @@ const personalMovieDB= {
     genres: [],
     privat: false
 };
-if (numberOfFilms===1){
-    console.log('мало');
+
+
+for(let i=0;i<2;i++){
+    const first=prompt("Один из последних фильмоыв?");
+    const second=prompt("На сколько оцените его?");
+
+    if(first!=null && second!=null && first!=''&&second!=''&&first.length<50){
+        personalMovieDB.movies[first] = second;
+        console.log('success');
+    } else{
+        console.log('error');
+        i--;
+    }
+    
+    
 }
-else{
-    console.log('норм так');
+if(personalMovieDB.count <10){
+    console.log('Мало');
+}else if(personalMovieDB.count>10 && personalMovieDB.count<30){
+    console.log('офигеть');
+}else if(personalMovieDB.count>=30){
+    console.log('жесткий');
+}else{
+    console.log('ошибка');
 }
-const first=prompt("Один из последних фильмоыв?");
-const second=prompt("На сколько оцените его?");
-personalMovieDB.movies[first] = second;
 console.log(personalMovieDB);
